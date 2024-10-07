@@ -1,0 +1,472 @@
+@charset "UTF-8";
+
+/*--------------------------------------------------------------
+    TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Settings: used with preprocessors and contain font, colors definitions, etc.
+2.0 - Tools: globally used mixins and functions. Use for preprocessor only.
+3.0 - Generic: reset and/or normalize styles, box-sizing definition, etc. 
+4.0 - Elements: styling for bare/generic HTML elements 
+        - Typography: Typography, Links, Address
+5.0 - Objects: class-based selectors which define undecorated design patterns, building blocks
+        - Framework
+6.0 - Components: specific designed components
+        - Nav
+        - Hero 
+        - Backgrounds & Spacing
+        - Footer 
+7.0 - Utilities: utilities and helper classes with ability to override anything which goes before in the triangle, eg. hide helper class
+        - Screen Reader
+8.0 - Media Queries
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+    3.0 - GENERIC
+-------------------------------------------------------------- */
+/* for some time, universal and html or body selector are all that will appear under here  */ 
+
+
+/* ----- UNIVERSAL ----- */
+
+* {
+    -o-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+html {
+    font-size: 1.25rem; /* 20px */
+      .poppins-regular {
+        font-family: "Poppins", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .poppins-bold {
+        font-family: "Poppins", system-ui;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .poppins-extrabold {
+        font-family: "Poppins", system-ui;
+        font-weight: 800;
+        font-style: normal;
+      }
+      .poppins-black {
+        font-family: "Poppins", system-ui;
+        font-weight: 900;
+        font-style: normal;
+      }
+}
+
+
+/*--------------------------------------------------------------
+    4.0 - ELEMENTS
+    - single (not contextual) element selectors only. No classes. No IDs. No contextual selectors. 
+-------------------------------------------------------------- */
+/* shared styles across elements are grouped at the top, not under an individual elements. Reduces repeated styles */ 
+
+
+
+/* ----- TYPOGRAPHY use rem ----- */
+
+.text-s {
+    font-size: .9rem;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.text-m {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.text-l {
+    font-size: 2.1rem;
+    line-height: 1.7;
+    font-size: clamp(1.4rem, 8vw - 2rem, 2.4rem);
+}
+
+.text-xl {
+    font-size: 2.4rem;
+    line-height: 3.6;
+    font-size: clamp(1.5rem, 8vw - 2rem, 2.6rem);
+}
+/* add clamp to these two sizes xxl xl*/
+
+.text-xxl {
+    font-size: 3rem;
+    line-height: 1.2;
+    font-size: clamp(2rem, 8vw - 2rem, 3rem);
+}
+
+.centeralign {
+    text-align: center;
+}
+
+.linespacing {
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+}
+
+/* ----- LINKS ----- */
+a{
+  text-decoration: none;
+}
+
+a:hover,
+.btn:hover {
+  opacity: .7;
+}
+/* ----- ADDRESS ----- */
+
+
+
+
+/*--------------------------------------------------------------
+    5.0 - OBJECTS
+-------------------------------------------------------------- */
+/* for some time, only .wrapper and .row are likely to appear under this category */ 
+
+/* ----- FRAMEWORK ----- */
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 64rem;
+    padding: 0 2rem;
+}
+
+.flex{
+  display: flex;
+}
+
+/*--------------------------------------------------------------
+    6.0 - COMPONENTS
+-------------------------------------------------------------- */
+/* shared styles across components are grouped at the top, not under an individual component. Reduces repeated styles */ 
+
+
+
+/* hero / footer / nav -- are considered components because they'd repeat on across pages on a multi page site. be careful to not get them in the habit of styling based on the 'content' that appears on the page but rather what components make those up */ 
+
+
+/* ----- NAV ----- */
+header div nav {
+  align-items: center;
+  justify-content: space-between;
+}
+
+header div nav .poppins-bold {
+  gap: 2rem;
+}
+
+/* ----- HERO ----- */
+main section .wrapper .bg-sor .flex{
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+main section div div .centeralign{
+  width: 34.4rem;
+  padding: 3.35rem 0 3.65rem;
+  margin: 0 auto;
+}
+
+main section div div .centeralign h2 {
+  margin: 0;
+}
+
+main section div div .centeralign .text-m {
+  margin: 0;
+  padding: 1.25rem 0 1.8rem;
+}
+
+main section div div .centeralign .text-s {
+  display: inline-block;
+  align-content: center;
+  margin: 0;
+}
+
+main section:nth-child(1){
+  margin: 0 0 2.5rem ;
+}
+
+/*---- section 1 -----*/
+
+.bg-sorborder {
+  border: #FFDDD2 0.8rem solid ;
+}
+
+section .wrapper > .flex {
+  padding: 2rem 1.85rem 1.55rem 1.85rem;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+section .wrapper .flex header h3 {
+  margin: 0;
+}
+
+section .wrapper .flex header .text-m {
+  padding: 0.75rem 0 2.5rem;
+  margin: 0;
+  width: 34.4rem;
+}
+
+section .wrapper .flex header .flex {
+  justify-content: end;
+}
+
+section .wrapper .flex header .flex p {
+  margin: 0;
+}
+
+section .wrapper .flex header .flex img {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/*----- shapes -----*/
+
+main > .wrapper .flex {
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  padding: 3.45rem 0 3.65rem;
+}
+
+/* ----- BACKGROUNDS AND SPACING ----- */
+
+.bg-sor {
+  background: #FFDDD2;
+}
+
+.bg-red {
+  background: #d42c59;
+}
+
+/* ----- FOOTER ----- */
+
+footer {
+  border-bottom: #F2B100 0.5rem solid;
+}
+
+footer .wrapper > .flex {
+ justify-content: space-between;
+ padding: 2.75ren 0 1.25rem;
+}
+
+footer div .flex .flex:nth-child(1) {
+  flex-direction: column;
+}
+footer div .flex .flex:nth-child(1) h1 {
+  margin: 0 0 0.75rem;
+}
+footer .wrapper .flex >.flex:nth-child(2) {
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+footer .wrapper .flex >.flex:nth-child(2) .magtext {
+  align-content: center;
+}
+
+.circlerow {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+/*--------------------------------------------------------------
+    7.0 - UTILITY
+-------------------------------------------------------------- */
+/* only classes that could be used on 'any' element should go here  */ 
+
+.sr-only {
+    position: absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+.blcktext {
+  color: #394053;
+}
+
+.whttext {
+  color: #ffff;
+}
+
+.magtext {
+  color: #d42c59;
+}
+
+.sortext {
+  color: #FFDDD2;
+}
+
+.yellowtext {
+  color: #F2B100;
+}
+
+
+
+
+.box {
+  width: 3.1rem;
+  height: 3.1rem;
+}
+
+.rectangle {
+  width: 16.7rem;
+  height: 2.25rem;
+  margin: 0;
+}
+
+.ycirle {
+  border-radius: 1.55rem;
+  background-color: #F2B100;
+  border: #F2B100 0.2rem solid;
+}
+
+.pcirle {
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 1.55rem;
+  background-color: #FFDDD2;
+}
+
+
+
+.mptyrec {
+  border: #FFDDD2 0.2rem solid;
+  background: rgb(225 225 225 / 50%);
+
+}
+
+
+
+/*--------------------------------------------------------------
+    8.0 Media Queries
+-------------------------------------------------------------- */
+/* Laptop */
+@media only screen and (max-width: 1100px) {
+  
+}
+
+/* Tablet */
+@media only screen and (max-width: 768px) {
+   /*--nav--*/
+    header .wrapper .flex {
+      margin: 0 auto;
+      flex-direction: column;
+      }
+
+    header .wrapper .flex .magtext p{
+      align-items: center;
+      margin: 1rem 0 .5rem;
+    }
+
+    header .wrapper .flex .text-s {
+      background: #F2B100;
+      flex-direction: row;
+      width: 100%;
+      justify-content: center;
+    }
+
+/*--hero--*/
+.wrapper .bg-sor .centeralign {
+  width: 19.5rem;
+}
+
+.wrapper .bg-sor .centeralign div{
+  width: 17.2rem;
+}
+
+/*--section 1 --*/
+section .wrapper > .flex {
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: start;
+  padding: 0;
+}
+
+section .wrapper .flex > div img{
+  max-width: 100%;
+  padding: 1rem 2rem;
+  
+}
+
+section .wrapper .flex header div{
+  padding: 1rem 2rem;
+  width: 20rem;
+}
+
+section .wrapper .flex header .text-m{
+  width: 25rem;
+}
+
+section .wrapper .flex header .flex {
+  flex-direction: row;
+ justify-content: start;
+}
+
+/*--shapes--*/
+main > .wrapper .flex {
+  gap: 1.5rem;
+  justify-content: center;
+}
+main .wrapper .flex .bg-red:nth-child(n+22),
+main .wrapper .flex .bg-sor:nth-child(n+23),
+main .wrapper .flex .ycirle:nth-child(n+22){
+display: none;
+gap: 0.25rem;
+}
+  
+/*--footer--*/
+footer .wrapper .flex{
+  flex-direction: column;
+}
+
+footer .wrapper .flex .flex:nth-child(2){
+  padding: 1rem 0 1rem;
+}
+
+footer .wrapper .flex .flex:nth-child(1) h1{
+  padding: 1rem 0 0;
+}
+}
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+.wrapper {
+    padding: 0;
+  }
+
+  /*--section 1--*/
+  section .wrapper > .flex {
+  margin: 2rem .5rem;
+  }
+
+  section .wrapper > .flex header div .text-m,
+  section .wrapper > .flex header div .text-l {
+    width: 14.5rem;
+  }
+/*--shapes--*/
+  main .wrapper .flex .bg-red:nth-child(n+12),
+  main .wrapper .flex .bg-sor:nth-child(n+13),
+  main .wrapper .flex .ycirle:nth-child(n+12){
+  display: none;
+  gap: 0.25rem;
+}
+/*--footer--*/
+footer .wrapper .flex{
+  align-items: center;
+}
+
+}
